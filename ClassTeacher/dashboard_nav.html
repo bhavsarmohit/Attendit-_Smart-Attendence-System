@@ -108,15 +108,31 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           
-          <li class="nav-item">
+          <li class="nav-item" id="nav_dashboard">
             <a onclick="return show('dashboard');" class="nav-link" href="#">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
 
+          
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#divisions" aria-expanded="false" aria-controls="divisions">
+            <a class="nav-link" data-toggle="collapse" href="#class" aria-expanded="false" aria-controls="class">
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">Class</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="class">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a onclick="return show('class-view');" class="nav-link"  href="#">View</a></li>
+                <li class="nav-item"> <a onclick="return show('class-add');" class="nav-link"  href="#">Add</a></li>
+                <li class="nav-item"><a onclick="return show('class-modify');" class="nav-link"  href="#">Modify</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item"  id="nav_division">
+            <a class="nav-link collapsed" data-toggle="collapse" href="#divisions" aria-expanded="false" aria-controls="divisions">
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">Divisions</span>
               <i class="menu-arrow"></i>
@@ -130,17 +146,17 @@
             </div>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#class" aria-expanded="false" aria-controls="class">
+          <li class="nav-item"  id="nav_subjects">
+            <a class="nav-link collapsed" data-toggle="collapse" href="#subjects" aria-expanded="false" aria-controls="subjects">
               <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Class</span>
+              <span class="menu-title">Subjects</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="class">
+            <div class="collapse" id="subjects">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a onclick="return show('class-view');" class="nav-link"  href="#">View</a></li>
-                <li class="nav-item"> <a onclick="return show('class-add');" class="nav-link"  href="#">Add</a></li>
-                <li class="nav-item"><a onclick="return show('class-modify');" class="nav-link"  href="#">Modify</a></li>
+                <li class="nav-item"> <a onclick="return show('subjects-view');" class="nav-link"  href="#">View</a></li>
+                <li class="nav-item"> <a onclick="return show('subjects-add');" class="nav-link"  href="#">Add</a></li>
+                <li class="nav-item"><a onclick="return show('subjects-modify');" class="nav-link"  href="#">Modify</a></li>
               </ul>
             </div>
           </li>
@@ -222,93 +238,78 @@
 
                 <div id="dashboard">
                   <iframe src="dashboard.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  <!-- <iframe src="dashboard.html" height="100%" width="100%" title="Dashboard"></iframe> -->
+                </div>
+
+                
+
+                <div id="class-view" style="display:none">
+                  <iframe src="class/view.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
+                </div>
+                <div id="class-add" style="display:none">
+                  <iframe src="class/add.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
+                </div>
+                <div id="class-modify" style="display:none">
+                  <iframe src="class/modify.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
                 </div>
 
                 <div id="divisions-view" style="display:none">
                   <iframe src="divisions/view.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
                 </div>
-
                 <div id="divisions-add" style="display:none">
                   <iframe src="divisions/add.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
                 </div>
-          
                 <div id="divisions-modify" style="display:none">
                   <iframe src="divisions/modify.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
                 </div>
 
-                <div id="class-view" style="display:none">
-                  <iframe src="class/view.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
+                <div id="subjects-view" style="display:none">
+                  <iframe src="subjects/view.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
                 </div>
-
-                <div id="class-add" style="display:none">
-                  <iframe src="class/add.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
+                <div id="subjects-add" style="display:none">
+                  <iframe src="subjects/add.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
                 </div>
-          
-                <div id="class-modify" style="display:none">
-                  <iframe src="class/modify.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
+                <div id="subjects-modify" style="display:none">
+                  <iframe src="subjects/modify.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
                 </div>
 
                 <div id="teachers-view" style="display:none">
                   <iframe src="teachers/view.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
                 </div>
-
                 <div id="teachers-add" style="display:none">
                   <iframe src="teachers/add.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
                 </div>
-          
                 <div id="teachers-modify" style="display:none">
                   <iframe src="teachers/modify.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
                 </div>
           
                 <div id="students-view" style="display:none">
                   <iframe src="students/view.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
                 </div>
-          
                 <div id="students-add" style="display:none">
                   <iframe src="students/add.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
                 </div>
-          
                 <div id="students-modify" style="display:none">
                   <iframe src="students/modify.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
                 </div>
           
                 <div id="batches-view" style="display:none">
                   <iframe src="batches/view.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
                 </div>
-          
                 <div id="batches-add" style="display:none">
                   <iframe src="batches/add.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
                 </div>
-          
                 <div id="batches-modify" style="display:none">
                   <iframe src="batches/modify.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
                 </div>
 
                 <div id="analysis" style="display:none">
                   <iframe src="analysis.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
                 </div>
 
                 <div id="reports" style="display:none">
                   <iframe src="reports.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
-                  
                 </div>
+                
               <!-- </div>
             </div>
           </div> -->
