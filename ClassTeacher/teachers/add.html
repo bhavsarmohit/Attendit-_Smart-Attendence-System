@@ -2,333 +2,210 @@
 <html lang="en">
 
 <head>
-  <script type="application/javascript" src="../js/rpie.js"></script>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Attendit Dashboard</title>
+  <!-- <title>Add Teachers</title> -->
   <!-- plugins:css -->
-  
-  <link rel="stylesheet" href="../../path-to/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
-  <link rel="stylesheet" href="../../path-to/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <!-- endinject -->
   <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="../../vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" type="text/css" href="../../js/select.dataTables.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
-  
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
 </head>
+
 <body>
   <div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
-    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="dashboard.html"><img src="../../images/logo.svg" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="dashboard.html"><img src="../../images/logo-mini.svg" alt="logo"/></a>
-      </div>
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-          <span class="icon-menu"></span>
-        </button>
-       
-        <ul class="navbar-nav navbar-nav-right">
-         
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="../../images/faces/face1.svg" alt="profile"/>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i>
-                Settings
-              </a>
-              <a class="dropdown-item">
-                <i class="ti-power-off text-primary"></i>
-                Logout
-              </a>
-            </div>
-          </li>
-         
-      </div>
-    </nav>
+    <!-- write your code here -->
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-    
-      <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
           
-          <li class="nav-item">
-            <a class="nav-link" href="dashboard.html">
-              <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-
-
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#teachers" aria-expanded="false" aria-controls="teachers">
-              <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Teachers</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="teachers">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="teachers/view.html">View</a></li>
-                <li class="nav-item"> <a class="nav-link" href="teachers/add.html">Add</a></li>
-                <li class="nav-item"><a class="nav-link" href="teachers/modify.html">Modify</a></li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#students" aria-expanded="false" aria-controls="students">
-              <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Students</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="students">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="students/view.html">View</a></li>
-                <li class="nav-item"> <a class="nav-link" href="students/add.html">Add</a></li>
-                <li class="nav-item"><a class="nav-link" href="students/modify.html">Modify</a></li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#batches" aria-expanded="false" aria-controls="charts">
-              <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Batches</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="batches">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="batches/view.html">View</a></li>
-                <li class="nav-item"> <a class="nav-link" href="batches/add.html">Add</a></li>
-                <li class="nav-item"><a class="nav-link" href="batches/modify.html">Modify</a></li>
-              </ul>
-            </div>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="analysis.html">
-              <i class="icon-grid-2 menu-icon"></i>
-              <span class="menu-title">Analysis</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="reports.html">
-              <i class="icon-grid-2 menu-icon"></i>
-              <span class="menu-title">Reports</span>
-            </a>
-          </li>
-
-          
-
-        </ul>
-      </nav>
-      <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
-          <div class="row">
-            
-            <div class="col-12 grid-margin">
-            <div class="card">
-              <div class="card-body">
-                <center>
-                <h4 class="card-title">Add Teacher</h4>
-              </center>
-                <form class="form-sample">
-                  <p class="card-description">
-                    Teacher info
-                  </p>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Prefix</label>
-                        <div class="col-sm-9">
-                          <select class="form-control">
-                            <option>Mr</option>
-                            <option>Mrs</option>
-                          </select>
-                        </div>
+          <div class="col-12 grid-margin">
+          <div class="card">
+            <div class="card-body">
+              <center>
+              <h4 class="card-title">Add Teacher</h4>
+            </center>
+              <form class="form-sample">
+                <p class="card-description">
+                  Teacher info
+                </p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Prefix</label>
+                      <div class="col-sm-9">
+                        <select class="form-control">
+                          <option>Mr</option>
+                          <option>Mrs</option>
+                        </select>
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">First Name</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" />
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">First Name</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Middle Name</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Last Name</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Gender</label>
+                      <div class="col-sm-4">
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios2" value="" checked>
+                            Male
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-sm-5">
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios3" value="option2">
+                            Female
+                          </label>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Middle Name</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Last Name</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" />
-                        </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Email</label>
+                      <div class="col-sm-9">
+                        <input type="email" class="form-control" />
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Gender</label>
-                        <div class="col-sm-4">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios2" value="" checked>
-                              Male
-                            </label>
-                          </div>
-                        </div>
-                        <div class="col-sm-5">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios3" value="option2">
-                              Female
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Email</label>
-                        <div class="col-sm-9">
-                          <input type="email" class="form-control" />
-                        </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Mobile No</label>
+                      <div class="col-sm-9">
+                        <input type="email" class="form-control" />
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Mobile No</label>
-                        <div class="col-sm-9">
-                          <input type="email" class="form-control" />
-                        </div>
-                      </div>
-                    </div>
-                   
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Select Class</label>
-                        <div class="col-sm-9">
-                          <select class="form-control">
-                            <option>Class1</option>
-                            <option>Class2</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
-
-                  </div>
-                  
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Select Division</label>
-                        <div class="col-sm-9">
-                          <select class="form-control">
-                            <option>Div1</option>
-                            <option>Div2</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Select Subject</label>
-                        <div class="col-sm-9">
-                          <select class="form-control">
-                            <option>Sub1</option>
-                            <option>Sub2</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Teaching Type</label>
-                        <div class="col-sm-9">
-                          <select class="form-control">
-                            <option>Theory</option>
-                            <option>Pratical</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Select Batch</label>
-                        <div class="col-sm-9">
-                          <select class="form-control">
-                            <option>Batch1</option>
-                            <option>Batch2</option>
-                          </select>
-                        </div>
+                 
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Select Class</label>
+                      <div class="col-sm-9">
+                        <select class="form-control">
+                          <option>Class1</option>
+                          <option>Class2</option>
+                        </select>
                       </div>
                     </div>
                   </div>
 
-                  <button style="float: right;" type="submit" class="btn btn-primary mr-2">Add</button>
-                </form>
-              </div>
+
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Select Division</label>
+                      <div class="col-sm-9">
+                        <select class="form-control">
+                          <option>Div1</option>
+                          <option>Div2</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Select Subject</label>
+                      <div class="col-sm-9">
+                        <select class="form-control">
+                          <option>Sub1</option>
+                          <option>Sub2</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Teaching Type</label>
+                      <div class="col-sm-9">
+                        <select class="form-control">
+                          <option>Theory</option>
+                          <option>Pratical</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Select Batch</label>
+                      <div class="col-sm-9">
+                        <select class="form-control">
+                          <option>Batch1</option>
+                          <option>Batch2</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <button style="float: right;" type="submit" class="btn btn-primary mr-2">Add</button>
+              </form>
             </div>
           </div>
-          
-        
-         
-
-          
-
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
+        
+      
        
-        <!-- partial -->
+
+        
+
       </div>
-      <!-- main-panel ends -->
+      <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+     
+      <!-- partial -->
     </div>
-    <!-- page-body-wrapper ends -->
+    <!-- main-panel ends -->
+    
   </div>
   <!-- container-scroller -->
-
   <!-- plugins:js -->
   <script src="../../vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
-  <script src="../../vendors/chart.js/Chart.min.js"></script>
-  <script src="../../vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="../../vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-  <script src="../../js/dataTables.select.min.js"></script>
-
   <!-- End plugin js for this page -->
   <!-- inject:js -->
   <script src="../../js/off-canvas.js"></script>
@@ -337,51 +214,6 @@
   <script src="../../js/settings.js"></script>
   <script src="../../js/todolist.js"></script>
   <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="../../js/dashboard.js"></script>
-  <script src="../../js/Chart.roundedBarCharts.js"></script>
-  <!-- End custom js for this page-->
-
-  <script type="text/javascript">
-		
-		var obj = {
-						values: [15, 50, 20, 85, 30],
-						colors: ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'],
-						animation: true, // Takes boolean value & default behavious is false
-						animationSpeed: 0, // Time in miliisecond & default animation speed is 20ms
-						fillTextData: true, // Takes boolean value & text is not generate by default 
-						fillTextColor: '#fff', // For Text colour & default colour is #fff (White)
-						fillTextAlign: 1.30, // for alignment of inner text position i.e. higher values gives closer view to center & default text alignment is 1.85 i.e closer to center
-						fillTextPosition: 'inner', // 'horizontal' or 'vertical' or 'inner' & default text position is 'horizontal' position i.e. outside the canvas
-						doughnutHoleSize: 50, // Percentage of doughnut size within the canvas & default doughnut size is null
-						doughnutHoleColor: '#fff', // For doughnut colour & default colour is #fff (White)
-						offset: 1, // Offeset between two segments & default value is null
-						pie: 'normal', // if the pie graph is single stroke then we will add the object key as "stroke" & default is normal as simple as pie graph
-						isStrokePie: { 
-							stroke: 20, // Define the stroke of pie graph. It takes number value & default value is 20
-							overlayStroke: true, // Define the background stroke within pie graph. It takes boolean value & default value is false
-							overlayStrokeColor: '#eee', // Define the background stroke colour within pie graph & default value is #eee (Grey)
-							strokeStartEndPoints: 'Yes', // Define the start and end point of pie graph & default value is No
-							strokeAnimation: true, // Used for animation. It takes boolean value & default value is true
-							strokeAnimationSpeed: 40, // Used for animation speed in miliisecond. It takes number & default value is 20ms
-							fontSize: '60px', // Used to define text font size & default value is 60px
-							textAlignement: 'center', // Used for position of text within the pie graph & default value is 'center'
-							fontFamily: 'Arial', // Define the text font family & the default value is 'Arial'
-							fontWeight: 'bold' //  Define the font weight of the text & the default value is 'bold'
-						}
-					  };
-		
-		
-		
-		//Generate myCanvas		
-		generatePieGraph('myCanvas', obj);
-    generatePieGraph('myCanvas1', obj);
-			
-	</script>
-
-
-
 </body>
 
 </html>
-
