@@ -30593,3 +30593,28 @@ div.tagsinput span.tag a {
 }
 
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
+
+
+/* for dividers with centered name--- */
+hr.hr-text {
+  position: relative;
+    border: none;
+    height: 2px;
+    background: rgb(230, 230, 230);
+}
+
+hr.hr-text::before {
+    content: attr(data-content);
+    display: inline-block;
+    background: rgb(113, 101, 180);
+    font-weight: bold;
+    font-size: 0.85rem;
+    color: rgb(255, 255, 255);
+    border-radius: 30rem;
+    padding: 0.2rem 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* ------ */
