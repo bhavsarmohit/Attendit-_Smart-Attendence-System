@@ -1,3 +1,54 @@
+<?php
+if(isset($_SESSION['username'])){
+  header('Location: Admin/dashboard_nav.html');
+exit();
+}
+require_once 'Admin/Database/config.php';
+$date = date('Y/m/d H:i:s');
+if (isset($_POST['submit']))
+{
+  $mysqli = new mysqli($hn,$un,"",$db);
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
+}
+else
+{
+  $fname=$_POST['firstname'];
+  $lname=$_POST['lastname'];
+  $mobno=$_POST['mobileno'];
+  $email=$_POST['email'];
+  $clgname=$_POST['clgname'];
+  $pass=$_POST['password'];
+  $pass=md5($pass);
+  $check_email="select * from users where email='$email'";
+  $raw=mysqli_query($mysqli,$check_email);
+  $count=mysqli_num_rows($raw);
+  if($count>0)
+  {
+      echo "same email";
+  }
+  else
+  {
+    $sql="INSERT INTO `users` (`id`, `firstname`, `lastname`, `mobno`, `email`, `clgname`, `pass`, `user_role`, `signup_timestamp`) VALUES (NULL, '$fname', '$lname', '$mobno', '$email', '$clgname', '$pass', 'admin', '$date')";
+      if($mysqli->query($sql) === TRUE)
+    {
+      echo "Data inserted";
+      header("Location: index.php"); 
+    }
+    else
+    {
+      die("Connection failed: " . $mysqli->query($sql));  
+    }
+    }
+  } 
+}
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,41 +80,6 @@
     }
   </script>
 </head>
-<?php
-require_once 'Admin/Database/config.php';
-$date = date('Y/m/d H:i:s');
-if (isset($_POST['submit']))
-{
-  $mysqli = new mysqli($hn,$un,"",$db);
-if ($mysqli -> connect_errno) {
-  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-  exit();
-}
-else
-{
-  $fname=$_POST['firstname'];
-  $lname=$_POST['lastname'];
-  $mobno=$_POST['mobileno'];
-  $email=$_POST['email'];
-  $clgname=$_POST['clgname'];
-  $pass=$_POST['password'];
-  $sql="INSERT INTO `users` (`id`, `firstname`, `lastname`, `mobno`, `email`, `clgname`, `pass`, `user_role`, `signup_timestamp`) VALUES (NULL, '$fname', '$lname', '$mobno', '$email', '$clgname', '$pass', 'admin', '$date')";
-  
-
-if($mysqli->query($sql) === TRUE)
-{
-  echo "Data inserted";
-}
-else
-{
-  die("Connection failed: " . $mysqli->query($sql));
-  
-}
-  
-}
-}
-
-?>
 <body>
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
@@ -109,7 +125,7 @@ else
                     </button>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Already have an account? <a href="index.html" class="text-primary">Login</a>
+                  Already have an account? <a href="index.php" class="text-primary">Login</a>
                 </div>
               </form>
             </div>

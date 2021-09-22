@@ -1,3 +1,35 @@
+<?php
+session_start();
+
+require_once '../Database/config.php';
+$date = date('Y/m/d H:i:s');
+if (isset($_POST['submit']))
+{
+  $mysqli = new mysqli($hn,$un,"",$db);
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
+}
+else
+{
+  $cname=$_POST['classname'];
+  $adminid=$_SESSION['id'];
+  $sql="INSERT INTO `class_data` (`id`, `classname`, `classteacherid`, `timestamp`) VALUES (NULL, '$cname', '$adminid', '$date');";
+      if($mysqli->query($sql) === TRUE)
+    {
+      echo "Data inserted";
+    }
+    else
+    {
+      echo "not inserted";  
+    }
+    }
+  } 
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,17 +63,17 @@
             <div class="card">
               <div class="card-body">
                 <center><h4 class="card-title">Add Class</h4></center>
-                <form class="form-sample">
+                <form class="form-sample" method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
                   <center>
                   <div class="col-md-6">
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Class Name</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" />
+                        <input type="text" name="classname"class="form-control" required />
                       </div>
                     </div>
                   </div>
-                  <button  type="submit" class="btn btn-primary mr-2">Add</button>
+                  <button  type="submit" name="submit" class="btn btn-primary mr-2">Add</button>
                 </center>
                  
                  

@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,8 +44,8 @@
         <div class="row">
 
           <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-            <h3 class="font-weight-bold">Good Morning, Class_Teacher</h3>
-            <h6 class="font-weight-normal mb-0">Tuesday, 12/12/2025</h6>
+            <h3 class="font-weight-bold">Good Morning, <?php echo $_SESSION["username"]; ?></h3>
+            <h6 class="font-weight-normal mb-0"><?php echo date("D,j/m/Y");?></h6>
           </div>
           <div class="col-12 col-xl-4">
            <div class="justify-content-end d-flex">

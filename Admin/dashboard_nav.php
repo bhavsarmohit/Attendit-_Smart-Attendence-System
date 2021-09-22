@@ -1,3 +1,17 @@
+<?php
+session_start();
+if($_SESSION["username"]) {
+ 
+}
+else
+{
+  header("Location:/attendit/index.php");
+} 
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,7 +101,7 @@
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
-              <a class="dropdown-item">
+              <a class="dropdown-item" href="logout.php">
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>
@@ -235,7 +249,7 @@
                 
 
                 <div id="dashboard">
-                  <iframe src="dashboard.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
+                  <iframe src="dashboard.php" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
                 </div>
 
                 
@@ -244,7 +258,7 @@
                   <iframe src="class/view.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
                 </div>
                 <div id="class-add" style="display:none">
-                  <iframe src="class/add.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
+                  <iframe src="class/add.php" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
                 </div>
                 <div id="class-modify" style="display:none">
                   <iframe src="class/modify.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
@@ -254,7 +268,7 @@
                   <iframe src="divisions/view.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
                 </div>
                 <div id="divisions-add" style="display:none">
-                  <iframe src="divisions/add.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
+                  <iframe src="divisions/add.php" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
                 </div>
                 <div id="divisions-modify" style="display:none">
                   <iframe src="divisions/modify.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>

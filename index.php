@@ -1,3 +1,54 @@
+<?php
+session_start();
+require_once 'Admin/Database/config.php';
+if (isset($_POST['submit']))
+{
+  $mysqli = new mysqli($hn,$un,"",$db);
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
+}
+else
+{
+  $email=$_POST['email'];
+  $pass=$_POST['pass'];
+  $pass=md5($pass);
+  $check_email="select id,user_role,firstname,lastname from users where email='$email' and pass='$pass'";
+  $raw=mysqli_query($mysqli,$check_email);
+  $row=mysqli_fetch_array($raw);
+  $s_id = $row[0];
+  $s_role = $row[1];
+  $s_firstname = $row[2];
+  $s_lastname = $row[3];
+  $count=mysqli_num_rows($raw);
+  if($count>0)
+  {
+    if($s_role=="admin")
+      {
+        $_SESSION["id"] = $s_id;
+        $_SESSION["username"] = $s_firstname;
+        $_SESSION["lastname"] = $s_lastname;
+        header("Location: Admin/dashboard_nav.php"); 
+      }
+  }
+  else
+  {
+    echo "not found";
+  } 
+}
+
+}
+
+
+
+
+
+if(isset($_SESSION["username"])) {
+  header("Location:Admin/dashboard_nav.php");
+  }
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,17 +82,15 @@
               </div>
               <h4>Hello! let's get started</h4>
               <h6 class="font-weight-light">Sign in to continue.</h6>
-              <form class="pt-3">
+              <form class="pt-3" method="post" name="myForm" action="<?php echo $_SERVER['PHP_SELF'];?>">
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
+                  <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1"
-                    placeholder="Password">
+                  <input type="password" class="form-control form-control-lg" name="pass"placeholder="Password" required>
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
-                    href="Admin\dashboard_nav.html">SIGN IN</a>
+                <button  name="submit" input type="submit"class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGNIN</button>
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
@@ -53,7 +102,7 @@
                   <a href="#" class="auth-link text-black">Forgot password?</a>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Don't have an account? <a href="signup.html" class="text-primary">Create</a>
+                  Don't have an account? <a href="signup.php" class="text-primary">Create</a>
                 </div>
               </form>
             </div>

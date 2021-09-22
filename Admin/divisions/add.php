@@ -1,3 +1,74 @@
+<?php
+session_start();
+require_once '../Database/config.php';
+$date = date('Y/m/d H:i:s');
+$mysqli = new mysqli($hn,$un,"",$db);
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
+}
+else
+{  
+  //load classes
+  $adminid=$_SESSION['id'];
+  $classes = array();
+  $sql = "SELECT * FROM `class_data` WHERE `classteacherid`='$adminid'";
+  $result = $mysqli->query($sql);
+  if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) 
+  {
+    //echo $row["classname"];
+    array_push($classes,$row["classname"]) ;
+  }
+  } else 
+  {
+    echo "0 results";
+  }
+}
+
+if (isset($_POST['submit']))
+{
+  $mysqli = new mysqli($hn,$un,"",$db);
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
+}
+else
+{
+  
+  //load classes
+  $adminid=$_SESSION['id'];
+  $products = array();
+  $sql = "SELECT `classname` FROM `class_data`";
+  $result = $mysqli->query($sql);
+  if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) 
+  {
+    echo $row["classname"];
+   // array_push($products,$row["classname"]) ;
+  }
+  } else 
+  {
+    echo "0 results";
+  }
+  $cname=$_POST['classname'];
+  $adminid=$_SESSION['id'];
+  $sql="INSERT INTO `class_data` (`id`, `classname`, `classteacherid`, `timestamp`) VALUES (NULL, '$cname', '$adminid', '$date');";
+      if($mysqli->query($sql) === TRUE)
+    {
+      echo "Data inserted";
+    }
+    else
+    {
+      echo "not inserted";  
+    }
+    }
+  } 
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,8 +118,13 @@
                       <label class="col-sm-3 col-form-label">Select Class</label>
                       <div class="col-sm-9">
                         <select class="form-control">
-                          <option>Class1</option>
-                          <option>Class2</option>
+                          <option>Select Class</option>
+                          <?php
+                    foreach($classes as $class)
+                    {
+                      echo '<option value="' . strtolower($class) . '">' . $class . '</option>';
+                    }
+                          ?>
                         </select>
                       </div>
                     </div>
