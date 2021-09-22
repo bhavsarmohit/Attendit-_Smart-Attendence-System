@@ -49,7 +49,7 @@ else
   $pass=$_POST['password'];
   $sql="INSERT INTO `users` (`id`, `firstname`, `lastname`, `mobno`, `email`, `clgname`, `pass`, `user_role`, `signup_timestamp`) VALUES (NULL, '$fname', '$lname', '$mobno', '$email', '$clgname', '$pass', 'admin', '$date')";
   
-//$result=$mysqli->query($query);
+
 if($mysqli->query($sql) === TRUE)
 {
   echo "Data inserted";
