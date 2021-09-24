@@ -97,9 +97,9 @@ else
               <img src="../images/faces/face1.svg" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
+              <a class="nav-item nav-settings d-none d-lg-flex dropdown-item">
                 <i class="ti-settings text-primary"></i>
-                Settings
+                Edit Profile
               </a>
               <a class="dropdown-item" href="logout.php">
                 <i class="ti-power-off text-primary"></i>
@@ -247,6 +247,70 @@ else
                 
                 <!-- main code here -->
                 
+                <div id="right-sidebar" class="settings-panel">
+                  <i class="settings-close ti-close"></i>
+                  <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="edit-profile-tab" data-toggle="tab" href="#edit-profile-section" role="tab" aria-controls="edit-profile-section" aria-expanded="true">Edit Profile</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+                    </li> -->
+                  </ul>
+                  <div class="tab-content" id="setting-content">
+                    <div class="tab-pane fade show active scroll-wrapper" id="edit-profile-section" role="tabpanel" aria-labelledby="edit-profile-section">
+                      <!-- code here code 4565 -->
+                      <div class="modal-content d-flex px-3 mb-0">
+                        
+                      <div class="modal-body">
+                        <center>
+                        <img src="../images/faces/face1.svg" class="rounded-circle" alt="Profile" width="100" height="100"> 
+                        </center>
+                        <!-- <center>
+                          <input type="file" name="img[]" class="file-upload-default">
+                        </center> -->
+                      </br>
+                      <form class="forms-sample">
+                        <div class="form-group">
+                          <label for="exampleInputUsername1">First Name</label>
+                          <input type="text" class="form-control" id="exampleInputUsername1" placeholder="First Name">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Last Name</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Last Name">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Mobile Number</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Mobile Number">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Email</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">College Name</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="College Name">
+                        </div>
+                      </form>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+
+                    </div>
+                    <!-- To do section tab ends -->
+                    
+                    <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+                      <!-- code here code 5642 -->
+
+                    </div>
+                    <!-- chat tab ends -->
+                  </div>
+                </div>
+
 
                 <div id="dashboard">
                   <iframe src="dashboard.php" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>

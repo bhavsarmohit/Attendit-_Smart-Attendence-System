@@ -84,10 +84,10 @@ if(isset($_SESSION["username"])) {
               <h6 class="font-weight-light">Sign in to continue.</h6>
               <form class="pt-3" method="post" name="myForm" action="<?php echo $_SERVER['PHP_SELF'];?>">
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" required>
+                  <input value="admin@admin.com" type="email" class="form-control form-control-lg" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" name="pass"placeholder="Password" required>
+                  <input value="Admin@123" type="password" class="form-control form-control-lg" name="pass"placeholder="Password" required>
                 </div>
                 <div class="mt-3">
                 <button  name="submit" input type="submit"class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGNIN</button>
