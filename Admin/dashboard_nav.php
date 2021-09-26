@@ -342,7 +342,7 @@ else
                   <iframe src="subjects/view.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
                 </div>
                 <div id="subjects-add" style="display:none">
-                  <iframe src="subjects/add.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
+                  <iframe src="subjects/add.php" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
                 </div>
                 <div id="subjects-modify" style="display:none">
                   <iframe src="subjects/modify.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
@@ -352,7 +352,7 @@ else
                   <iframe src="teachers/view.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
                 </div>
                 <div id="teachers-add" style="display:none">
-                  <iframe src="teachers/add.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
+                  <iframe src="teachers/add.php" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>
                 </div>
                 <div id="teachers-modify" style="display:none">
                   <iframe src="teachers/modify.html" style="position: absolute; height: 90%; width: 100%;" frameborder="0"></iframe>

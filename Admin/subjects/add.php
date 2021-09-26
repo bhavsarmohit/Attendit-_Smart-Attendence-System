@@ -31,7 +31,6 @@ else
     echo "0 results";
   }
 }
-
 if (isset($_POST['submit']))
 {
   $mysqli = new mysqli($hn,$un,"",$db);
@@ -50,11 +49,11 @@ else
   {
     
     //echo $selected;
-    $divison_name=$_POST['div_name'];
+    $subject_name=$_POST['subjectname'];
     $selected_classid=$classid[$selected];
     $selected_classname=$classes[$selected];
 
-    $check_division="select * from division_data where d_name='$divison_name' and d_adminid='$adminid' and d_classid='$selected_classid'";
+    $check_division="select * from subject_data where subject_name='$subject_name' and s_adminid='$adminid' and classid='$selected_classid'";
     $raw=mysqli_query($mysqli,$check_division);
     
     if(mysqli_num_rows($raw))
@@ -63,7 +62,7 @@ else
     }
     else
     {
-      $sql="INSERT INTO `division_data` (`id`, `d_name`, `d_classid`, `d_classname`, `d_adminid`) VALUES (NULL, '$divison_name', '$selected_classid', '$selected_classname', '$adminid');";
+      $sql="INSERT INTO `subject_data` (`id`, `subject_name`, `classid`, `classname`, `s_adminid`) VALUES (NULL, '$subject_name', '$selected_classid', '$selected_classname', '$adminid');";
       if($mysqli->query($sql) === TRUE)
       {
        echo "Data inserted";
@@ -76,9 +75,8 @@ else
     } 
   } 
 }
+
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,9 +96,6 @@ else
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
-
-
-
 </head>
 
 <body>
@@ -115,23 +110,16 @@ else
           <div class="col-12 grid-margin">
             <div class="card">
               <div class="card-body">
-                <center><h4 class="card-title">Add Division</h4></center>
+                <center><h4 class="card-title">Add Subject</h4></center>
                 <form class="form-sample" method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
                   <center>
-                  <div class="col-md-6">
-                    <div class="form-group row">
-                      <label class="col-sm-3 col-form-label">Division Name</label>
-                      <div class="col-sm-9">
-                        <input type="text" name="div_name" class="form-control" required/>
-                      </div>
-                    </div>
-                  </div>
+                  
                   <div class="col-md-6">
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Select Class</label>
                       <div class="col-sm-9">
                         <select  class="form-control" name="classnames"required  oninvalid="this.setCustomValidity('Select Class Name')" oninput="this.setCustomValidity('') ">
-                        <option  value="">Select Class</option>
+                          <option  value="">Select Class</option>
                           <?php
                           for($x=0;$x<count($classes);$x++)
                           {
@@ -142,18 +130,15 @@ else
                       </div>
                     </div>
                   </div>
-                  <!-- <div class="col-md-6">
+                  <div class="col-md-6">
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label">Select Student</label>
+                      <label class="col-sm-3 col-form-label">Subject Name</label>
                       <div class="col-sm-9">
-                        <select class="form-control">
-                          <option>Group1</option>
-                          <option>Group2</option>
-                        </select>
+                        <input type="text" name="subjectname"class="form-control" required oninvalid="this.setCustomValidity('Please Enter Subject Name')" oninput="this.setCustomValidity('') "/>
                       </div>
                     </div>
-                  </div> -->
-                  <button  type="submit" name='submit' class="btn btn-primary mr-2">Add</button>
+                  </div>
+                  <button  type="submit" name="submit" class="btn btn-primary mr-2">Add</button>
                 </center>
                  
                  
